@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<h1>Entries</h1>
+
+{% for entry in entries %}
+
+<ul class="content-list">
+	<li class="content-list-item">
+		<a class="content-list-link" href="{% url 'main:entry' entry.id %}">{{ entry }}</a>
+	</li>
+	{% empty %}
+	<li class="content-list-item">There no entries to display here.</li>
+	{% endfor %}
+</ul>
+
+{% endblock content %}

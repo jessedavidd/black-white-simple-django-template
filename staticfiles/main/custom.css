@@ -1,0 +1,60 @@
+/* Colorsheme */
+
+:root {
+	--color1: #000000;
+	--color2: #ffffff;
+	--color3: #b2b2b2;
+	--color4: #064acb;
+}
+
+
+/* General settings */
+
+body {
+	background-color: var(--color2);
+	color: var(--color1);
+}
+
+a {
+	color: var(--color4);
+}
+
+a:hover {
+	color: var(--color4);
+}
+
+.content-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.content-list-link {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* Navbar settings */
+
+.navbar {
+	border-radius: 0px;
+	background-color: var(--color2);
+	color: var(--color1);
+}
+
+.navbar-default .navbar-brand {
+	color: var(--color1);
+}
+
+.navbar-default .navbar-brand:hover {
+	color: var(--color1);
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: var(--color1);
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	background-color: var(--color1);
+	color: var(--color2);
+}

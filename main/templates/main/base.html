@@ -1,0 +1,58 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Single page template</title>
+
+	{% load static %}
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main/custom.css' %}">
+
+</head>
+<body>
+
+	{% load google_analytics_tags %}
+	<div style="display:none">
+		<img src="{% google_analytics %}" width="0" height="0" />
+	</div>
+
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="true">
+		        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+		      </button>
+		      <a class="navbar-brand" href="{% url 'main:index' %}">Brand</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="navbar">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#">Link</a></li>
+		        <li><a href="#">Link</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Link</a></li>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container-fluid">
+
+		{% block content %}{% endblock content %}
+		
+	</div>
+</body>

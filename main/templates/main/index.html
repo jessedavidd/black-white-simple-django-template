@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% load martortags %}
+
+{% block content %}
+
+{% for main in main_content %}
+	<p class="main-content-index">{{ main.content|safe_markdown }}</p>
+{% endfor %}	
+
+<h1>LATEST ENTRIES</h1>
+
+<ul class="content-list">
+	{% for entry in latest_entries %}
+
+	<li class="content-list-item">
+		<a class="content-list-link" href="{% url 'main:entry' entry.id %}">{{ entry.title }}</a>
+	</li>
+	{% empty %} 
+	<li class="content-list-item">There are no entries to show here :(</li>
+	{% endfor %}
+
+
+
+{% endblock content %}
