@@ -1,25 +1,42 @@
-{% extends 'main/base.html' %}
-
+{% extends "main/base.html" %}
 {% load martortags %}
-
 {% block content %}
 
 {% for main in main_content %}
 	<p class="main-content-index">{{ main.content|safe_markdown }}</p>
 {% endfor %}	
 
-<h1>LATEST ENTRIES</h1>
+<div class="container-fluid">
+	<h1>Latest Entries</h1>
+	
+	<ul class="content-list">
+	<div class="index-entries">
+		{% for entry in latest_entries %}
+		<li class="content-list-item">
+			<a href="{% url 'main:entry' entry.id %}">{{ entry.title }}</a>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-sm-12">
+							<span class="content-metadata">Date: {{ entry.date }}</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<span class="content-metadata">Category: {{ entry.category }}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<p class="post-content">{{ entry.content|safe_markdown }}</p>
+				</div>
+			</div>
+		</li>
+		{% empty %} 
+		<li class="content-list-item">There are no entries to show here :(</li>
+		{% endfor %}
 
-<ul class="content-list">
-	{% for entry in latest_entries %}
-
-	<li class="content-list-item">
-		<a class="content-list-link" href="{% url 'main:entry' entry.id %}">{{ entry.title }}</a>
-	</li>
-	{% empty %} 
-	<li class="content-list-item">There are no entries to show here :(</li>
-	{% endfor %}
-
-
+	</div>
+</div>
 
 {% endblock content %}

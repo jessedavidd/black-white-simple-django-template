@@ -1,0 +1,14 @@
+
+{% extends "main/base.html" %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ category }}</h1>
+      <ul class="content-list">{% for entry in entries %}
+        <li><a href="{% url 'main:entry' entry.id %}">{{ entry.title }}</a></li>{% empty %}
+        <li>No posts have been added under this category yet :(</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>{% endblock content %}

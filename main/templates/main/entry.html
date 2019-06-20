@@ -1,0 +1,22 @@
+
+{% extends "main/base.html" %} 
+{% load martortags %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ entry.title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="row">
+        <div class="col-xs-12"><span class="content-metadata">Date: {{ entry.date }}</span></div>
+        <div class="col-xs-12"><span class="content-metadata">Category: {{ entry.category }}</span></div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <p>{{ entry.content|safe_markdown }}</p>
+    </div>
+  </div>
+</div>{% endblock content %}
