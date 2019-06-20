@@ -12,6 +12,7 @@ media
 
 # HTML & CSS
 *.jade
+*.pug
 *.sass
 
 # Other files

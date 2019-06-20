@@ -1,18 +1,8 @@
-{% extends "main/base.html" %}
 
+{% extends 'main/base.html' %}
 {% block content %}
-
-<h1>Categories</h1>
-
-{% for category in categories %}
-
+<h1>Categories</h1>{% for category in categories %}
 <ul class="content-list">
-	<li class="content-list-item">
-		<a class="content-list-link" href="{% url 'main:category' category.id %}">{{ category }}</a>
-	</li>
-	{% empty %}
-	<li class="content-list-item">There no categories to display here.</li>
-	{% endfor %}
-</ul>
-
-{% endblock content %}
+  <li class="content-list-item"><a class="content-list-link" href="{% url 'main:category' category.id %}">{{ category }}</a></li>{% empty %}
+  <li class="content-list-item">There no categories to display here.</li>{% endfor %}
+</ul>{% endblock content %}

@@ -1,68 +1,41 @@
-{% load bootstrap3 %}
-
-<!DOCTYPE html>
-
-<html lang="en">
-
+<!DOCTYPE html>{% load bootstrap3 %}
 <head>
-	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>High contrast template</title>
-
-	{% load static %}
-	{% bootstrap_css %}
-	{% bootstrap_javascript %}
-	<link rel="stylesheet" type="text/css" href="{% static 'main/custom.css' %}">
-
-</head>
-<body>
-
-	{% load google_analytics_tags %}
-	<div style="display:none">
-		<img src="{% google_analytics %}" width="0" height="0" />
-	</div>
-
-
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="container">
-		    		<!-- Brand and toggle get grouped for better mobile display -->
-		    		<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="true">
-						<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-					</button>
-					<a class="navbar-brand" href="{% url 'main:index' %}">Brand</a>
-		    		</div>
-				
-		    		<!-- Collect the nav links, forms, and other content for toggling -->
-		    		<div class="collapse navbar-collapse" id="navbar">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'main:entries' %}">All Entries</a></li>
-						<li class="dropdown">
-          						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-          						<ul class="dropdown-menu">
-								{% for category in categories %}
-								<li><a href="{% url 'main:category' category.id %}">{{ category }}</a></li>
-								{% empty %}
-								<li>No categories have been added yet :(</li>
-								{% endfor %}
-							</ul>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
-					</ul>
-		    		</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
-	</nav>
-
-	<div class="container-fluid">
-
-		<div class="container">
-			{% block content %}{% endblock content %}
-		</div>
-
-	</div>
-</body>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>High contrast template</title>{% load static %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <link rel="stylesheet" type="text/css" href="{% static 'main/custom.css' %}">
+</head>{% load google_analytics_tags %}
+<div style="display:none"><img src="{% google_analytics %}" width="0" height="0"></div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display-->
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="true"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button><a class="navbar-brand" href="{% url 'main:index' %}">Brand</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling-->
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'main:entries' %}">All Entries</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+            <ul class="dropdown-menu">{% for category in categories %}
+              <li><a href="{% url 'main:category' category.id %}">{{ category }}</a></li>{% empty %}
+              <li>No categories have been added yet :(</li>{% endfor %}
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse-->
+    </div>
+    <!-- /.container-fluid-->
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="container">{% block content %}{% endblock content %}</div>
+</div>

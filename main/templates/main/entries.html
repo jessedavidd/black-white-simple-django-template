@@ -1,33 +1,19 @@
-{% extends "main/base.html" %}
 
+{% extends 'main/base.html' %}
 {% block content %}
-
-
 <div class="row">
-	<div class="col-sm-8">
-		<h1>All Entries</h1>
-		{% for entry in entries %}
-		<ul class="content-list">
-			<li class="content-list-item">
-				<a class="content-list-link" href="{% url 'main:entry' entry.id %}">{{ entry }}</a>
-			</li>
-			{% empty %}
-			<li class="content-list-item">There no entries to display here.</li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div class="col-sm-4 category-container">
-		<h1>Categories</h1>
-		{% for category in categories %}
-		<ul class="content-list">
-			<li>
-				<a href="{% url 'main:category' category.id %}">{{ category }}</a>
-			</li>
-			{% empty %}
-			<li>No categories have been added yet :(</li>
-			{% endfor %}
-		</ul>
-	</div>
-</div>
-
-{% endblock content %}
+  <div class="col-sm-8">
+    <h1>All Entries</h1>{% for entry in entries %}
+    <ul class="content-list">
+      <li class="content-list-item"><a class="content-list-link" href="{% url 'main:entry' entry.id %}">{{ entry }}</a></li>{% empty %}
+      <li class="content-list-item">There no entries to display here.</li>{% endfor %}
+    </ul>
+  </div>
+  <div class="col-sm-4 category-container">
+    <h1>Categories</h1>&#x9;&#x9;{% for category in categories %}
+    <ul class="content-list">
+      <li><a href="{% url 'main:category' category.id %}">{{ category }}</a></li>{% empty %}
+      <li>No categories have been added yet :(</li>{% endfor %}
+    </ul>
+  </div>
+</div>{% endblock content %}
