@@ -2,8 +2,10 @@
 {% extends 'main/base.html' %}
 {% load martortags %}
 {% block content %}
-{% for main in main_content %}
-<p class="main-content-index">{{ main.content|safe_markdown }}</p>{% endfor %}
+<div class="container-fluid">
+    {% for main in main_content %}
+    <p class="main-content-index">{{ main.content|safe_markdown }}</p>{% endfor %}
+</div>
 <div class="container-fluid">
   <h1>Latest Entries</h1>
   <ul class="content-list">
